@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>String</title>
+    <script type="text/javascript">
+      function message() {
+        var arrayA = ["a", "ddd", "c", "d", "ade", "de", "e3"];
+        let a = [];
+        let b = [];
+        const length = arrayA.length;
+        for (i = 0; i < length; i++) {
+          a[i] = arrayA[i].length;
+          b[i] = 1;
+        }
+        let c = [];
+        for (i = 0; i < a.length; i++) {
+          var count = 1;
+          if (b[i]) {
+            b[i] = 0;
+            for (j = i + 1; j < a.length; j++) {
+              if (a[j] === a[i]) {
+                count++;
+                b[j] = 0;
+              }
+            }
+            document.writeln(
+              "Độ dài chuỗi là " + a[i] + " được lặp lại: " + count + " lần."
+            );
+            c[a[i]] = count;
+          }
+        }
+        var max = Math.max.apply(Math, Object.values(c));
+        var d = c.indexOf(max);
+        alert("Độ dài chuỗi xuất hiện nhiều nhất là: " + d);
+      }
+    </script>
+  </head>
+  <body>
+    <p>Mảng đầu vào arrayA=["a", "ddd", "c", "d", "ade", "de", "e3"]</p>
+    <p>Độ dài của chuỗi lặp lại nhiều nhất là:</p>
+    <a onclick=" message();" href="#"> Kết quả</a>
+  </body>
+</html>
